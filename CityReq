@@ -1,0 +1,13 @@
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement(name="getWeatherbyCityName",namespace="http://WebXml.com.cn/")
+public class CityReq {
+    private String theCityName;
+    public String getTheCityName() {
+        return theCityName;
+    }
+    @XmlElement(name="theCityName",namespace="http://WebXml.com.cn/")
+    public void setTheCityName(String theCityName) {
+        this.theCityName = theCityName;
+    }
+}
