@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://example" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://example" xmlns:intf="http://example" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://example" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="income" type="xsd:double"/>
+   <element name="incomeaxProcedureReturn" type="xsd:double"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="incomeaxProcedureRequest">
+
+      <wsdl:part element="impl:income" name="income"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="incomeaxProcedureResponse">
+
+      <wsdl:part element="impl:incomeaxProcedureReturn" name="incomeaxProcedureReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="taxProcedure">
+
+      <wsdl:operation name="incomeaxProcedure" parameterOrder="income">
+
+         <wsdl:input message="impl:incomeaxProcedureRequest" name="incomeaxProcedureRequest"/>
+
+         <wsdl:output message="impl:incomeaxProcedureResponse" name="incomeaxProcedureResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="taxProcedureSoapBinding" type="impl:taxProcedure">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="incomeaxProcedure">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="incomeaxProcedureRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="incomeaxProcedureResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="taxProcedureService">
+
+      <wsdl:port binding="impl:taxProcedureSoapBinding" name="taxProcedure">
+
+         <wsdlsoap:address location="http://localhost:8080//services/example/taxProcedure"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
